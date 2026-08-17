@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: StoreFlow
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/StoreFlowBD
+    username: postgres
+    password: ROOT
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+    show-sql: true
+
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8085
