@@ -1,12 +1,13 @@
 package com.storeflow.mapper;
 
 import com.storeflow.dto.ProductRequestDto;
+import com.storeflow.dto.ProductResponseDto;
 import com.storeflow.entity.ProductEntity;
 
 public class ProductMapper {
 
-    public ProductRequestDto toDto(ProductEntity productEntity){
-        return  new ProductRequestDto(productEntity.getNombre(),productEntity.getPrecio(),productEntity.getStock());
+    public ProductResponseDto toDto(ProductEntity productEntity){
+        return  new ProductResponseDto(productEntity.getId(),productEntity.getNombre(),productEntity.getPrecio(),productEntity.getStock(),productEntity.getFechaCreacion(),productEntity.getFechaActualizacion());
 
     }
 
