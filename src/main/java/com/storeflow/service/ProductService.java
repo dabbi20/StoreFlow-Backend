@@ -4,6 +4,7 @@ import com.storeflow.entity.ProductEntity;
 
 import java.util.List;
 
+
 public interface ProductService {
 
     ProductEntity registrarProducto(ProductEntity product);

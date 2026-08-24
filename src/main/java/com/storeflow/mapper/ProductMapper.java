@@ -3,7 +3,9 @@ package com.storeflow.mapper;
 import com.storeflow.dto.ProductRequestDto;
 import com.storeflow.dto.ProductResponseDto;
 import com.storeflow.entity.ProductEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductMapper {
 
     public ProductResponseDto toDto(ProductEntity productEntity){
