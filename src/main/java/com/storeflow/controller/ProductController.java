@@ -6,6 +6,8 @@ import com.storeflow.entity.ProductEntity;
 import com.storeflow.mapper.ProductMapper;
 import com.storeflow.service.ProductService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -45,16 +47,16 @@ public class ProductController {
 
     @PostMapping
 
-    ProductResponseDto crearProducto(@Valid @RequestBody ProductRequestDto productRequestDto) {
+    public ResponseEntity<ProductResponseDto>crearProducto(@Valid @RequestBody ProductRequestDto productRequestDto) {
         ProductEntity product = productMapper.toEntity(productRequestDto);
 
 
         ProductEntity productoGuardado = productService.registrarProducto(product);
         ProductResponseDto dto = productMapper.toDto(productoGuardado);
 
-        {
-            return dto;
-        }
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(dto);
 
     }
 
@@ -71,8 +73,12 @@ return  dtoActualizar;
 
 
     @DeleteMapping("/{idProducto}")
-    void borrarProducto(@PathVariable Long idProducto){
+    ResponseEntity<Void> borrarProducto(@PathVariable Long idProducto){
 productService.eliminarProducto(idProducto);
+
+return ResponseEntity
+        .status(HttpStatus.NO_CONTENT)
+        .build();
     }
 
 }

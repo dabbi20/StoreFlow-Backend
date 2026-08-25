@@ -1,6 +1,5 @@
 package com.storeflow.mapper;
 
-import com.storeflow.dto.ProductRequestDto;
 import com.storeflow.dto.SalesResponseDto;
 import com.storeflow.entity.SaleEntity;
 import org.springframework.stereotype.Component;
