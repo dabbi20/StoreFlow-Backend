@@ -48,7 +48,11 @@ public class ProductController {
     @PostMapping
 
     public ResponseEntity<ProductResponseDto>crearProducto(@Valid @RequestBody ProductRequestDto productRequestDto) {
+
+
         ProductEntity product = productMapper.toEntity(productRequestDto);
+
+
 
 
         ProductEntity productoGuardado = productService.registrarProducto(product);

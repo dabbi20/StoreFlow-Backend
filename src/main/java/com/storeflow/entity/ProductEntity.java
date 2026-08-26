@@ -95,12 +95,15 @@ public ProductEntity(){}
         if (nombre == null || nombre.isBlank()){
             throw new IllegalArgumentException("El nombre no puede estar vacio");
         }
+        this.nombre = nombre;
     }
 
     public void setPrecio(BigDecimal precio) {
     if (precio == null || precio.compareTo(BigDecimal.ZERO)< 0){
         throw  new IllegalArgumentException("El precio debe ser mayor a 0");
     }
+
+    this.precio = precio;
     }
 
 
@@ -108,6 +111,8 @@ public ProductEntity(){}
         if (stock < 0){
             throw new IllegalArgumentException("El stock no puede ser negativo");
         }
+
+        this.stock = stock;
     }
 
     public void setSales(List<SaleEntity> sales) {
